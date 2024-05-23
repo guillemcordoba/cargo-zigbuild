@@ -826,7 +826,10 @@ impl Zig {
                         .join("arm-features.h");
                     let existing_content = fs::read_to_string(&arm_features_h).unwrap_or_default();
                     if existing_content != ARM_FEATURES_H {
-                        fs::write(arm_features_h, ARM_FEATURES_H)?;
+                        println!("existing_content{}", existing_content);
+                        println!("ARM_FEATURES_H{}", ARM_FEATURES_H);
+                        
+                        // fs::write(arm_features_h, ARM_FEATURES_H)?;
                     }
                 }
             } else if target.contains("windows-gnu") {
